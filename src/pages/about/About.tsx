@@ -52,12 +52,13 @@ const About = () => {
       <div className="my-5">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Our Mission</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo omnis
-          in nostrum. Unde voluptatum, deleniti aliquid minima sequi optio rerum
-          odio porro nisi fugiat, eius veniam soluta obcaecati dolorum tempora
-          voluptates eveniet assumenda quo nemo aliquam doloribus nulla? Aut nam
-          consequatur impedit officiis quasi libero autem tempora minus debitis
-          repellendus.
+          Our mission is to transform how co-working spaces are managed by
+          streamlining the room booking experience. We are dedicated to
+          providing businesses, freelancers, and entrepreneurs with an intuitive
+          platform that enhances productivity and fosters collaboration. By
+          leveraging cutting-edge technology and focusing on user needs, we aim
+          to make booking and managing workspaces easy, efficient, and
+          accessible to everyone.
         </p>
       </div>
 
@@ -84,9 +85,14 @@ const About = () => {
       <div className="my-5">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Our Story</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex animi
-          saepe aliquid commodi et vero eaque quia voluptatum magnam natus
-          labore, ab earum, nemo deleniti. Vitae blanditiis sint molestiae iste.
+          Our story started with a straightforward goal: to simplify access to
+          co-working spaces and make them more efficient. As founders who
+          frequently faced challenges with booking meeting rooms, we realized
+          there was room for improvement. What began as a small initiative has
+          grown into a comprehensive platform that now supports thousands of
+          users. By refining the booking process, we've enabled businesses to
+          concentrate on what's most important—achieving their goals and driving
+          success.
         </p>
       </div>
     </div>
