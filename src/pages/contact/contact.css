@@ -1,0 +1,13 @@
+.contactForm .inputBox span {
+  transition: all 0.3s ease;
+  transform-origin: left;
+}
+
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:not(:placeholder-shown) ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:not(:placeholder-shown) ~ span {
+  color: #000000;
+  font-size: 16px;
+  transform: translateY(-80%);
+}

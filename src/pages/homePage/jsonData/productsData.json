@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Awekeys Mechanical Keyboard Moon Landing [GB]",
+    "img_url": "https://i.ibb.co.com/t3Kzqy2/Whats-App-Image-2024-03-31-at-03-51-41-2d0e3e62.jpg",
+    "brand": "Awekeys",
+    "stock_quantity": 45,
+    "price": 2800,
+    "rating": 3
+  },
+  {
+    "id": 2,
+    "name": "KKB Pumpkin Spice Latte Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/1TC2Hfp/6a.webp",
+    "brand": "Keykobo",
+    "stock_quantity": 25,
+    "price": 6599,
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "name": "Gateron Mechanical Keyboard Pro (new)",
+    "img_url": "https://i.ibb.co.com/R73QS4G/Tempest-blue3-1000x1000-test.jpg",
+    "brand": "Gateron",
+    "stock_quantity": 50,
+    "price": 4500,
+    "rating": 4
+  },
+  {
+    "id": 4,
+    "name": "Ducky One 2 Mini RGB Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/Jv6X8Fh/TD-Ajazz-AK992-3.webp",
+    "brand": "Ducky",
+    "stock_quantity": 15,
+    "price": 9900,
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "name": "Keychron K6 Wireless Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/jTsXLTR/pre-order-yunzii-al68-qmkvia-aluminum-mechanical-keyboard-yunzii-111703.webp",
+    "brand": "Keychron",
+    "stock_quantity": 75,
+    "price": 8500,
+    "rating": 4
+  },
+  {
+    "id": 6,
+    "name": "Varmilo VA87M Sakura Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/XWpSRHb/Keychron-K15-Pro-QMK-VIA-ultra-slim-wireless-custom-mechanical-keyboard-75-percent-Alice-layout-for.webp",
+    "brand": "Varmilo",
+    "stock_quantity": 12,
+    "price": 11500,
+    "rating": 5
+  },
+  {
+    "id": 7,
+    "name": "Akko Neon Mechanical Keyboard (new)",
+    "img_url": "https://i.ibb.co.com/HhKMD0x/K86-1500-8102751a-78c6-4d86-b041-31e5abec5a04.webp",
+    "brand": "Akko",
+    "stock_quantity": 40,
+    "price": 3300,
+    "rating": 3
+  },
+  {
+    "id": 8,
+    "name": "Drop Alt High-Profile Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/pXHmM72/HERMES-M6-Slogan.png",
+    "brand": "Drop",
+    "stock_quantity": 20,
+    "price": 14999,
+    "rating": 4
+  },
+  {
+    "id": 9,
+    "name": "GMMK Pro Barebones Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/F0Cfgw5/epomaker-rt100-tri-mode-mechanical-keyboard-1.jpg",
+    "brand": "Glorious",
+    "stock_quantity": 25,
+    "price": 12999,
+    "rating": 5
+  },
+  {
+    "id": 10,
+    "name": "KBDFans KBD67 Lite Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/DRkxy4n/df-scaled.jpg",
+    "brand": "KBDFans",
+    "stock_quantity": 30,
+    "price": 9800,
+    "rating": 4
+  },
+  {
+    "id": 11,
+    "name": "Razer BlackWidow Elite Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/gWrVfcc/bannerbg3.jpg",
+    "brand": "Razer",
+    "stock_quantity": 60,
+    "price": 10999,
+    "rating": 5
+  },
+  {
+    "id": 12,
+    "name": "Corsair K95 RGB Platinum XT Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/JpqYbZ3/610724-Product-0-I-637993561040629243.webp",
+    "brand": "Corsair",
+    "stock_quantity": 20,
+    "price": 15000,
+    "rating": 5
+  },
+  {
+    "id": 13,
+    "name": "Logitech G Pro X Mechanical Gaming Keyboard",
+    "img_url": "https://i.ibb.co.com/s66fy9P/5380cfc1-b540-465f-98e8-a2cb2fbc88a7-jpg.webp",
+    "brand": "Logitech",
+    "stock_quantity": 35,
+    "price": 13000,
+    "rating": 4
+  },
+  {
+    "id": 14,
+    "name": "HyperX Alloy FPS Pro Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/KDk6wkJ/1-54073600-91a4-4540-829d-20b77891900d.webp",
+    "brand": "HyperX",
+    "stock_quantity": 45,
+    "price": 7500,
+    "rating": 4
+  },
+  {
+    "id": 15,
+    "name": "SteelSeries Apex Pro TKL Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/L0rzNVm/Keychron-Q1-Max-QMK-VIA-Wireless-Custom-Mechanical-Keyboard-75-Layout-Aluminum-White-Fully-Assembled.webp",
+    "brand": "SteelSeries",
+    "stock_quantity": 30,
+    "price": 19000,
+    "rating": 5
+  },
+  {
+    "id": 16,
+    "name": "Anne Pro 2 Wireless Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/L1k0Ps9/keyone.jpg",
+    "brand": "Anne Pro",
+    "stock_quantity": 50,
+    "price": 7000,
+    "rating": 4
+  },
+  {
+    "id": 17,
+    "name": "Epomaker GK68X RGB Hot-Swappable Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/d0cwswn/Keychron-Q2-custom-mechanical-keyboard-fully-assembled-version-black-brown-1800x1800.webp",
+    "brand": "Epomaker",
+    "stock_quantity": 40,
+    "price": 8500,
+    "rating": 5
+  },
+  {
+    "id": 18,
+    "name": "Leopold FC750R PD Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/kc4HhR3/Keychron-Q3-Pro-QMK-VIA-wireless-custom-mechanical-keyboard-tenkeyless-layout-full-aluminum-white-fr.webp",
+    "brand": "Leopold",
+    "stock_quantity": 25,
+    "price": 11500,
+    "rating": 5
+  },
+  {
+    "id": 19,
+    "name": "Vortexgear Pok3r RGB Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/s94vwYd/Keychron-Q3-Pro-QMK-VIA-wireless-custom-mechanical-keyboard-tenkeyless-layout-full-aluminum-black-fr.webp",
+    "brand": "Vortexgear",
+    "stock_quantity": 35,
+    "price": 12000,
+    "rating": 4
+  },
+  {
+    "id": 20,
+    "name": "Royal Kludge RK61 Wireless Mechanical Keyboard",
+    "img_url": "https://i.ibb.co.com/BP8BKZf/moon-landing-15.webp",
+    "brand": "Royal Kludge",
+    "stock_quantity": 75,
+    "price": 6000,
+    "rating": 3
+  }
+]
