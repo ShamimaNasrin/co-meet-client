@@ -41,7 +41,8 @@ const AdvertiseService = () => {
   return (
     <>
       <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7 bg-gradient-to-b from-white to-zinc-200 ">
-        <h2 className="font-bold text-4xl mb-4">Our Services</h2>
+        <h2 className="font-bold text-4xl text-indigo-600">Our Services</h2>
+        <p className="mb-4 text-gray-700">Even more reasons to stay with us</p>
 
         <div className="container mx-auto px-4">
           <div
