@@ -8,7 +8,7 @@ const NotFound = () => {
       <Link to="/home">
         <button
           // className="font-medium px-5 py-3 absolute z-10 border bg-gray-900 backdrop-filter backdrop-blur-md bg-opacity-10"
-          className="font-medium px-5 py-3 absolute z-10 rounded border-none bg-black text-white hover:bg-gray-700"
+          className="font-medium px-5 py-3 absolute z-10 rounded border-none bg-violet-600 text-white hover:bg-violet-800"
           style={{
             top: "50%",
             left: "50%",
