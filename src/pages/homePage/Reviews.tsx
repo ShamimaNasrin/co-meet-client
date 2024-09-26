@@ -23,27 +23,27 @@ type TProp = {
 const clients: TClient[] = [
   {
     name: "Sarah Thompson",
-    position: "IT Specialist",
+    position: "Project Manager",
     img_url:
       "https://i.ibb.co.com/fQBrGr2/lovepik-confident-business-women-png-image-400615903-wh1200.png",
     stars: 4,
-    disc: `This keyboard is amazing for long coding sessions. The tactile feel and the build quality are impressive. Highly recommend for developers!`,
+    disc: `Booking meeting rooms through this platform has made my team’s workflow so much smoother. The real-time availability feature is a lifesaver for last-minute meetings.`,
   },
   {
     name: "David Kim",
-    position: "Graphic Designer",
+    position: "Creative Director",
     img_url:
       "https://t4.ftcdn.net/jpg/02/90/27/39/360_F_290273933_ukYZjDv8nqgpOBcBUo5CQyFcxAzYlZRW.jpg",
     stars: 5,
-    disc: `I love the RGB lighting and the smooth key travel. It has become my go-to keyboard for both work and gaming.`,
+    disc: `I love the flexibility and ease of booking rooms for brainstorming sessions. The platform is user-friendly, and the spaces are always well-maintained.`,
   },
   {
     name: "Emily Parker",
-    position: "Tech Blogger",
+    position: "Marketing Consultant",
     img_url:
       "https://i.ibb.co.com/BVgMHYc/lovepik-business-women-png-image-401866621-wh1200.png",
     stars: 5,
-    disc: `This mechanical keyboard has exceeded my expectations. The build is solid and the switches are incredibly responsive. Perfect for enthusiasts!`,
+    disc: `The booking process is incredibly smooth. The variety of room sizes and amenities offered is perfect for both small meetings and large workshops.`,
   },
   {
     name: "Michael Brown",
@@ -51,7 +51,7 @@ const clients: TClient[] = [
     img_url:
       "https://t4.ftcdn.net/jpg/02/90/27/39/360_F_290273933_ukYZjDv8nqgpOBcBUo5CQyFcxAzYlZRW.jpg",
     stars: 4,
-    disc: `A great keyboard for programming. The keys feel sturdy and responsive, though I wish the wrist rest was a bit more comfortable.`,
+    disc: `The rooms are great for team discussions, and I appreciate the availability of tech equipment. The only thing I wish for is more availability during peak hours.`,
   },
   {
     name: "Rachel Green",
@@ -59,23 +59,31 @@ const clients: TClient[] = [
     img_url:
       "https://i.ibb.co.com/BVgMHYc/lovepik-business-women-png-image-401866621-wh1200.png",
     stars: 5,
-    disc: `The keyboard is top-notch! I’ve been using it for my freelance work, and it’s both stylish and functional. Absolutely worth every penny.`,
+    disc: `Perfect platform for freelancers like me! I can easily find and book meeting rooms for client calls. The process is quick, and the spaces are professional.`,
   },
   {
     name: "James Lee",
-    position: "Gamer & Streamer",
+    position: "Startup Founder",
     img_url:
       "https://t4.ftcdn.net/jpg/02/90/27/39/360_F_290273933_ukYZjDv8nqgpOBcBUo5CQyFcxAzYlZRW.jpg",
     stars: 5,
-    disc: `Best keyboard I've ever used for gaming. The feedback from the keys is perfect, and the customizable backlighting is great for night sessions.`,
+    disc: `This platform has been a game-changer for hosting investor meetings. The rooms are well-equipped, and the instant confirmation gives me peace of mind.`,
   },
   {
     name: "Laura Davis",
-    position: "System Administrator",
+    position: "Operations Manager",
     img_url:
       "https://i.ibb.co.com/fQBrGr2/lovepik-confident-business-women-png-image-400615903-wh1200.png",
     stars: 3,
-    disc: `Good keyboard, but I found the keycaps a bit slippery after extended use. The functionality is great, but it could use a better grip.`,
+    disc: `Good platform, but I’ve had a few issues with room availability during peak times. Otherwise, the booking experience is quite convenient.`,
+  },
+  {
+    name: "Luise Davis",
+    position: "Project Manager",
+    img_url:
+      "https://i.ibb.co.com/fQBrGr2/lovepik-confident-business-women-png-image-400615903-wh1200.png",
+    stars: 4,
+    disc: `The rooms are great for team discussions, and I appreciate the availability of tech equipment. The only thing I wish for is more availability during peak hours.`,
   },
 ];
 
@@ -123,11 +131,11 @@ const CustomerCard = ({ client }: TProp) => {
   const { name, position, img_url, stars, disc } = client;
 
   return (
-    <div className="w-full h-full mx-auto bg-gray-100  p-6  rounded-lg shadow-md">
+    <div className="w-full h-full mx-auto bg-gray-100 border border-indigo-400 p-6 rounded-lg">
       {/* Header with quote and stars */}
       <div className="flex justify-between items-center mb-4">
-        <span className="text-4xl text-teal-400 opacity-70">
-          <BiSolidQuoteLeft className="text-black" />
+        <span className="text-4xl text-indigo-500 opacity-70">
+          <BiSolidQuoteLeft className="text-indigo-500" />
         </span>
         <div className="flex items-center justify-center">
           <span className="text-yellow-500 text-sm ">{stars}</span>

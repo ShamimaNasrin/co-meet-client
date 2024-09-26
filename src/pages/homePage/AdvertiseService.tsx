@@ -1,29 +1,39 @@
-import { MdSupportAgent, MdLocalShipping } from "react-icons/md";
-import { GiTakeMyMoney } from "react-icons/gi";
-import { RiLock2Line } from "react-icons/ri";
+import { MdSupportAgent } from "react-icons/md";
+import { GoClockFill } from "react-icons/go";
+import { FaCalendarCheck } from "react-icons/fa";
+import { SlCalender } from "react-icons/sl";
+import { motion } from "framer-motion";
 
 type TProp = {
+  id: number;
   title: string;
   description: string;
 };
 
 const services: TProp[] = [
   {
-    title: "Top-notch Support",
-    description: "Our Teams does its best to answer every question within 24h.",
-  },
-  {
-    title: "Cash on Delivery",
-    description: "We provide cash on delivery to all over Bangladesh",
-  },
-  {
-    title: "Fast Shipping",
-    description: "All orders for in-stock items ship by the next business day!",
-  },
-  {
-    title: "Secure Payment",
+    id: 1,
+    title: "Real-Time Availability",
     description:
-      "All payments are securely processed to ensure customer safety.",
+      "Check room availability in real-time and secure your booking instantly.",
+  },
+  {
+    id: 2,
+    title: "Instant Booking Confirmation",
+    description:
+      "Receive immediate confirmation once your meeting room is booked.",
+  },
+  {
+    id: 3,
+    title: "Flexible Scheduling",
+    description:
+      "Easily adjust your booking times with flexible scheduling options that suit your needs.",
+  },
+  {
+    id: 4,
+    title: "24/7 Support",
+    description:
+      "Our support team is available 24/7 to assist you with any booking-related inquiries.",
   },
 ];
 
@@ -31,7 +41,7 @@ const AdvertiseService = () => {
   return (
     <>
       <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7 bg-gradient-to-b from-white to-zinc-200 ">
-        <h2 className="font-bold text-4xl mb-4">Why Us?</h2>
+        <h2 className="font-bold text-4xl mb-4">Our Services</h2>
 
         <div className="container mx-auto px-4">
           <div
@@ -47,6 +57,7 @@ const AdvertiseService = () => {
             {services.map((service, i) => (
               <ServiceCard
                 key={i}
+                id={service.id}
                 title={service.title}
                 description={service.description}
               />
@@ -58,23 +69,28 @@ const AdvertiseService = () => {
   );
 };
 
-const ServiceCard = ({ title, description }: TProp) => {
+const ServiceCard = ({ id, title, description }: TProp) => {
   return (
-    <div className="w-full h-[170px] bg-white p-5 shadow-lg flex flex-col justify-evenly items-center rounded-lg">
-      {title === "Top-notch Support" ? (
-        <MdSupportAgent className="text-purple-500 text-3xl" />
-      ) : title === "Cash on Delivery" ? (
-        <GiTakeMyMoney className="text-blue-600 text-3xl" />
-      ) : title === "Fast Shipping" ? (
-        <MdLocalShipping className="text-green-500 text-3xl" />
-      ) : (
-        <RiLock2Line className="text-yellow-400 text-3xl" />
-      )}
-      <p className="text-lg font-bold">{title}</p>
-      <p className="text-base font-normal text-center text-gray-700">
-        {description}
-      </p>
-    </div>
+    <motion.div
+      whileInView={{ opacity: 1, translateY: 0 }}
+      initial={{ opacity: 0, translateY: 20 }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-[190px] bg-white p-5 shadow-lg flex flex-col justify-evenly items-center rounded-lg"
+    >
+      <div className="bg-[#EEE6F4] rounded-full p-3">
+        {id === 1 ? (
+          <GoClockFill className="text-indigo-600 text-3xl" />
+        ) : id === 2 ? (
+          <FaCalendarCheck className="text-indigo-600 text-3xl" />
+        ) : id === 3 ? (
+          <SlCalender className="text-indigo-600 text-3xl" />
+        ) : (
+          <MdSupportAgent className="text-indigo-600 text-3xl" />
+        )}
+      </div>
+      <p className="text-lg font-semibold my-2">{title}</p>
+      <p className="text-sm  text-center text-gray-700 ">{description}</p>
+    </motion.div>
   );
 };
 
