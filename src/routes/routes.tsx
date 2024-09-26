@@ -13,6 +13,8 @@ import MeetingRoomsMain from "../pages/meetingRoomsPage/MeetingRoomsMain";
 import SignUpMain from "../pages/signUp/SignUpMain";
 import LoginMain from "../pages/login/LoginMain";
 import MyBookingsMain from "../pages/myBookings/MyBookingsMain";
+import PrivacyPolicy from "../pages/privacyPolicy/PrivacyPolicy";
+import TermsOfService from "../pages/termsOfService/TermsOfService";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +76,14 @@ const router = createBrowserRouter([
         path: "faqs",
         element: <FaqsMain />,
       },
-
+      {
+        path: "privacy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "terms",
+        element: <TermsOfService />,
+      },
       {
         path: "*",
         element: <NotFound />,

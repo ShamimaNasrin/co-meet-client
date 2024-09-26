@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import useTitle from "../../customHooks/useTitle";
+
 const faqs = [
   {
     ques: "What are the available payment methods?",
@@ -34,9 +37,14 @@ const faqs = [
 ];
 
 const FaqsMain = () => {
+  //scrolltop
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useTitle("Faqs");
   return (
-    <div className="bg-zinc-50 w-full xl:px-16 lg:px-16 md:px-16 sm:px-16 px-16 py-16">
-      <h2 className="text-3xl font-semibold text-black text-center mb-10">
+    <div className="bg-zinc-50 w-full xl:px-16 lg:px-16 md:px-16 sm:px-16 px-16 py-16 font-sans">
+      <h2 className="text-3xl font-semibold text-violet-600 text-center mb-10">
         FAQs
       </h2>
 

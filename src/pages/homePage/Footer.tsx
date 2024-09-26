@@ -9,8 +9,8 @@ import { IoIosMail } from "react-icons/io";
 
 const links = [
   { name: "FAQ", path: "/faqs" },
-  { name: "About Us", path: "/about" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "Privacy Policy", path: "/privacy" },
+  { name: "TermsOfService", path: "/terms" },
 ];
 
 const Footer = () => {
@@ -40,7 +40,7 @@ const Footer = () => {
 
           <p className="text-base font-normal text-gray-600 hover:text-gray-800 flex items-center">
             <IoIosMail className="mr-1 text-[18px]" />
-            info@comeet.com
+            support@comeet.com
           </p>
           <p className="text-base font-normal text-gray-600 hover:text-gray-800 flex items-center">
             <FaPhone className="mr-1" />
