@@ -1,23 +1,35 @@
 const faqs = [
   {
-    ques: "What are the payment methods available?",
-    ans: "At the moment, we accept all credit and debit cards through Stripe.",
+    ques: "What are the available payment methods?",
+    ans: "We accept payments through all major credit cards, debit cards, and PayPal. More payment options will be available soon.",
   },
   {
-    ques: "I have placed an order, when will I be receiving my purchases?",
-    ans: "We are committed to process all our orders within 2 working days!. Delivery usually will takes about 2 to 5 business days for Dhaka, 7 to 15 business days for outside Dhaka",
+    ques: "How can I book a meeting room?",
+    ans: "Simply browse the available rooms, select a time slot, and confirm your booking. You'll receive a confirmation email with all the details.",
   },
   {
-    ques: "How much is the shipping fee?",
-    ans: "Shipping Within Dhaka: 50 BDT for 1st KG, 30 BDT for subsequent KG. Shipping To outside Dhaka: 100 BDT for 1st KG, 50 BDT for subsequent 0.5KG.",
+    ques: "Can I cancel or reschedule my booking?",
+    ans: "Yes, you can cancel or reschedule your booking up to 24 hours before the scheduled time without any charges. Cancellations or changes made within 24 hours will incur a fee.",
   },
   {
-    ques: "How do I know if a product is available? Can I pre-order products from you?",
-    ans: "All our products that you can purchase in our website are AVAILABLE & READY STOCK. Unless it is specifically mentioned that it's a PRE-ORDER or GROUP BUY product.",
+    ques: "Are refreshments provided in the meeting rooms?",
+    ans: "Some of our meeting rooms offer complimentary refreshments. You can check the room amenities when making your booking.",
   },
   {
-    ques: "I ordered the wrong item/colour, can I request for an exchange?",
-    ans: "Our apologies as we do not accept refund or return unless the product arrived faulty. Please share a picture or video of the issue and we shall take it from there.",
+    ques: "What is your refund policy?",
+    ans: "Refunds are available for cancellations made 24 hours before the booking time. No refunds will be issued for late cancellations or no-shows.",
+  },
+  {
+    ques: "Can I extend my meeting if it goes longer than expected?",
+    ans: "You can extend your meeting if the room is available. Additional charges will apply for the extended time.",
+  },
+  {
+    ques: "Do you offer any discounts for bulk bookings?",
+    ans: "Yes, we offer special discounts for long-term and bulk bookings. Please contact our support team for more details.",
+  },
+  {
+    ques: "How do I know if the room I want is available?",
+    ans: "You can check real-time availability for all rooms directly on our platform. If a room is booked, it will be marked as unavailable for the selected time slot.",
   },
 ];
 

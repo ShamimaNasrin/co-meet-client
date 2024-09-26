@@ -1,4 +1,6 @@
 .active {
   padding-bottom: 2px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgb(124 58 237);
+  color: rgb(124 58 237);
+  font-weight: 600;
 }
