@@ -1,23 +1,50 @@
 import { useEffect } from "react";
 import useTitle from "../../customHooks/useTitle";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hooks";
+import { useLoginMutation } from "../../redux/features/auth/authApi";
+import toast from "react-hot-toast";
+import { setUser, TUser } from "../../redux/features/auth/authSlice";
+import { tokenVerify } from "../../utils/tokenVerify";
 
-interface IFormInput {
+interface TFormInput {
   email: string;
   password: string;
 }
 
 const LoginMain: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [login] = useLoginMutation();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInput>();
+  } = useForm<TFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
-    // Handle login logic here
+  const onSubmit: SubmitHandler<TFormInput> = async (data) => {
+    const toastId = toast.loading("Logging in");
+    // console.log(data);
+    try {
+      const userInfo = {
+        email: data.email,
+        password: data.password,
+      };
+      const res = await login(userInfo).unwrap();
+      // console.log("res:", res);
+
+      const user = tokenVerify(res.data.accessToken) as TUser;
+      console.log("user :", user);
+      dispatch(setUser({ user: res.data.user, token: res.data.accessToken }));
+      toast.success("Logged in", { id: toastId, duration: 2000 });
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong", { id: toastId, duration: 2000 });
+    }
   };
+
   //scrolltop
   useEffect(() => {
     window.scrollTo(0, 0);
