@@ -5,7 +5,14 @@ import team2 from "../../assets/images/team2.jpg";
 import team3 from "../../assets/images/team3.jpg";
 import { motion } from "framer-motion";
 
-export const teamMembers = [
+interface TeamMemberProps {
+  name: string;
+  image: string;
+  designation: string;
+  bio: string;
+}
+
+const teamMembers = [
   {
     name: "John Doe",
     image: team1,
@@ -25,13 +32,6 @@ export const teamMembers = [
     bio: "Michael is a project manager with expertise in leading agile teams and ensuring timely delivery of projects.",
   },
 ];
-
-interface TeamMemberProps {
-  name: string;
-  image: string;
-  designation: string;
-  bio: string;
-}
 
 const About = () => {
   //scrolltop

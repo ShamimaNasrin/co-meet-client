@@ -18,7 +18,15 @@ const ContactMain = () => {
 
     <div className="contact relative min-h-screen xl:py-20 lg:py-20 py-7 xl:px-24 lg:px-24 md:px-10 px-7 flex flex-col justify-center items-center">
       <div className="content max-w-4xl text-center z-10">
-        <h2 className="text-3xl font-bold text-violet-600">Contact Us</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-3xl font-bold text-violet-600 text-center"
+        >
+          Contact Us
+        </motion.h2>
+
         <p className="text-gray-800 mt-4">
           Please reach out to us if you have any questions or concerns, and we
           will try to get back to you as soon as possible. We respond within two

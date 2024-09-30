@@ -44,16 +44,27 @@ const HowItWorks = () => {
         {/* Timeline Connector */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full z-0"></div>
 
-        <div className="flex justify-between gap-2 items-center mx-auto px-4">
-          {steps.map((step, index) => (
-            <StepCard
-              key={index}
-              icon={step.icon}
-              title={step.title}
-              description={step.description}
-              delay={step.delay}
-            />
-          ))}
+        <div className="container mx-auto px-4">
+          <div
+            className="
+          grid gap-4 
+          grid-cols-1
+          sm:grid-cols-1
+          md:grid-cols-2
+          lg:grid-cols-3
+          xl:grid-cols-3
+        "
+          >
+            {steps.map((step, index) => (
+              <StepCard
+                key={index}
+                icon={step.icon}
+                title={step.title}
+                description={step.description}
+                delay={step.delay}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

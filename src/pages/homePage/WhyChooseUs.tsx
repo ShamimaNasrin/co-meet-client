@@ -77,7 +77,7 @@ const ServiceCard = ({ id, title, description }: StepCardProps) => {
       whileInView={{ opacity: 1, translateY: 0 }}
       initial={{ opacity: 0, translateY: 20 }}
       transition={{ duration: 0.8 }}
-      className="w-full h-[190px] bg-white p-5 shadow-lg flex flex-col justify-evenly items-center rounded-lg"
+      className="w-full text-center bg-white p-5 shadow-lg flex flex-col justify-evenly items-center rounded-lg"
     >
       {id === 1 ? (
         <FaCheckCircle className="text-indigo-600 text-3xl" />
@@ -90,7 +90,7 @@ const ServiceCard = ({ id, title, description }: StepCardProps) => {
       )}
 
       <p className="text-lg font-semibold my-2">{title}</p>
-      <p className="text-sm  text-center text-gray-700 ">{description}</p>
+      <p className="text-sm text-gray-700 ">{description}</p>
     </motion.div>
   );
 };
