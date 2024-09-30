@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import useTitle from "../../customHooks/useTitle";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useSignupMutation } from "../../redux/features/auth/authApi";
+import toast from "react-hot-toast";
 
-interface IFormInput {
+interface TFormInput {
   name: string;
   email: string;
   password: string;
@@ -14,12 +17,26 @@ const SignUpMain: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInput>();
+  } = useForm<TFormInput>();
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
-    // Handle sign-up logic here
+  const navigate = useNavigate();
+  const [signup] = useSignupMutation();
+
+  const onSubmit: SubmitHandler<TFormInput> = async (data) => {
+    // console.log(data);
+    const userInfo = { ...data, role: "user" };
+    // console.log(userInfo);
+
+    try {
+      await signup(userInfo).unwrap();
+      toast.success("Sign Up successful");
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+      toast.error("Failed to sign up");
+    }
   };
+
   //scrolltop
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,7 +48,7 @@ const SignUpMain: React.FC = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white shadow-md rounded-lg p-8 space-y-6 xl:w-[35%] lg:w-[35%] md:w-[60%] sm:w-[80%] w-[90%]"
       >
-        <h2 className="text-2xl font-semibold text-center text-indigo-600">
+        <h2 className="text-2xl font-semibold text-center text-indigo-600 font-sans">
           Sign Up
         </h2>
 
@@ -65,7 +82,13 @@ const SignUpMain: React.FC = () => {
           <input
             type="email"
             id="email"
-            {...register("email", { required: "Email is required" })}
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/,
+                message: "Please enter a valid email address",
+              },
+            })}
             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
               errors.email ? "border-red-500" : "border-gray-300"
             }`}
