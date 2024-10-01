@@ -75,7 +75,7 @@ const ServiceCard = ({ id, title, description }: TProp) => {
     <motion.div
       whileInView={{ opacity: 1, translateY: 0 }}
       initial={{ opacity: 0, translateY: 20 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1 }}
       className="w-full text-center bg-white p-5 shadow-lg flex flex-col justify-evenly items-center rounded-lg"
     >
       <div className="bg-[#EEE6F4] rounded-full p-3">

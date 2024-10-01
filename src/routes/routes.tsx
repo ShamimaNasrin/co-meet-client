@@ -15,6 +15,10 @@ import LoginMain from "../pages/login/LoginMain";
 import MyBookingsMain from "../pages/myBookings/MyBookingsMain";
 import PrivacyPolicy from "../pages/privacyPolicy/PrivacyPolicy";
 import TermsOfService from "../pages/termsOfService/TermsOfService";
+import RoomManagement from "../pages/adminDashboard/roomManagement/RoomManagement";
+import SlotsManagement from "../pages/adminDashboard/slotsManagement/SlotsManagement";
+import BookingManagement from "../pages/adminDashboard/bookingManagement/BookingManagement";
+import UserManagement from "../pages/adminDashboard/userManagement/UserManagement";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,46 @@ const router = createBrowserRouter([
         element: <HomeMain />,
       },
 
+      // admin routes
+      {
+        path: "admin/dashboard",
+        element: <DashboardMain />,
+      },
+      {
+        path: "admin/room-management",
+        element: <RoomManagement />,
+      },
+      {
+        path: "admin/slot-management",
+        element: <SlotsManagement />,
+      },
+      {
+        path: "admin/booking-management",
+        element: <BookingManagement />,
+      },
+      {
+        path: "admin/user-management",
+        element: <UserManagement />,
+      },
+      // user routes
+      {
+        path: "user/roomDetails/:id",
+        element: <RoomDetails />,
+      },
+      {
+        path: "user/myBookings",
+        element: <MyBookingsMain />,
+      },
+      {
+        path: "user/checkout",
+        element: <CheckOutMain />,
+      },
+      {
+        path: "user/success",
+        element: <SuccessPayment />,
+      },
+
+      // common routes
       {
         path: "login",
         element: <LoginMain />,
@@ -43,27 +87,6 @@ const router = createBrowserRouter([
         path: "rooms",
         element: <MeetingRoomsMain />,
       },
-      {
-        path: "roomDetails/:id",
-        element: <RoomDetails />,
-      },
-      {
-        path: "checkout",
-        element: <CheckOutMain />,
-      },
-      {
-        path: "success",
-        element: <SuccessPayment />,
-      },
-      {
-        path: "myBookings",
-        element: <MyBookingsMain />,
-      },
-      {
-        path: "dashboard",
-        element: <DashboardMain />,
-      },
-
       {
         path: "about",
         element: <About />,
