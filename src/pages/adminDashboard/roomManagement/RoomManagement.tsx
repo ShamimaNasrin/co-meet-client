@@ -9,6 +9,12 @@ import LoadingSpinner from "../../../components/LoadingSpinner";
 import NoDataFound from "../../../components/NoDataFound";
 import RoomFormModal from "./RoomFormModal";
 import ConfirmationModal from "./ConfirmationModal";
+import {
+  useCreateARoomMutation,
+  useDeleteSingleRoomMutation,
+  useGetAllRoomsQuery,
+  useUpdateARoomMutation,
+} from "../../../redux/features/room/roomApi";
 
 const headings = [
   "Room Name",
@@ -19,104 +25,68 @@ const headings = [
   "Actions",
 ];
 
-const data = [
-  {
-    name: "Sunset Conference",
-    roomNo: "101",
-    floorNo: "1",
-    capacity: 20,
-    pricePerSlot: 150,
-  },
-  {
-    name: "Ocean View",
-    roomNo: "202",
-    floorNo: "2",
-    capacity: 30,
-    pricePerSlot: 200,
-  },
-  {
-    name: "Skyline Meeting",
-    roomNo: "303",
-    floorNo: "3",
-    capacity: 15,
-    pricePerSlot: 120,
-  },
-  {
-    name: "Lakeside Lounge",
-    roomNo: "404",
-    floorNo: "4",
-    capacity: 25,
-    pricePerSlot: 180,
-  },
-  {
-    name: "Mountain Peak",
-    roomNo: "505",
-    floorNo: "5",
-    capacity: 40,
-    pricePerSlot: 250,
-  },
-];
-
 const RoomManagement = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState<TRoom | null>(null);
-  const [isLoading, setisLoading] = useState(false);
 
-  // const { data, isLoading } = useFetchAllProductsQuery({});
-  // const [addProduct] = useAddProductMutation();
-  // const [deleteProduct] = useRemoveProductMutation();
-  // const [updateProduct] = useUpdateProductMutation();
+  const { data, isLoading } = useGetAllRoomsQuery({});
+  const [createARoom] = useCreateARoomMutation();
+  const [deleteSingleRoom] = useDeleteSingleRoomMutation();
+  const [updateARoom] = useUpdateARoomMutation();
 
-  const handleAddRoom = async (newProduct: TRoom) => {
-    console.log("Room added:", newProduct);
+  // console.log("data:", data?.data?.result);
 
-    // try {
-    //   const res = await addProduct(newProduct).unwrap();
-    //   if (res?.success) {
-    //     console.log("add res:", res?.message);
-    //     toast.success("Product added successfully!");
-    //   }
-    // } catch (err) {
-    //   console.error(err);
-    //   toast.error("Failed to Add product");
-    // }
+  const handleAddRoom = async (newRoom: TRoom) => {
+    // console.log("Room added:", newRoom);
+
+    try {
+      await createARoom(newRoom).unwrap();
+      toast.success("Product added successfully!");
+
+      // if (res?.success) {
+      //   // console.log("add res:", res?.message);
+      // }
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to Add room");
+    }
 
     setShowAddModal(false);
   };
 
   const handleUpdateRoom = async (updatedRoom: TRoom) => {
-    console.log("Product updated:", updatedRoom);
-    // const roomId = updatedRoom._id;
-    // try {
-    //   const res = await updateProduct({
-    //     roomId,
-    //     data: updatedRoom,
-    //   }).unwrap();
-    //   if (res?.success) {
-    //     console.log("update res:", res?.message);
-    //     toast.success("Product updated successfully!");
-    //   }
-    // } catch (err) {
-    //   console.error(err);
-    //   toast.error("Failed to update product");
-    // }
+    console.log("Room updated:", updatedRoom);
+    const roomId = updatedRoom._id;
+    try {
+      const res = await updateARoom({
+        roomId,
+        updatedRoomData: updatedRoom,
+      }).unwrap();
+      if (res?.success) {
+        console.log("update res:", res?.message);
+        toast.success("Room updated successfully!");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to update Room");
+    }
     setShowUpdateModal(false);
   };
 
   const handleDeleteRoom = async (id: string) => {
     console.log("Room deleted:", id);
-    // try {
-    //   const res = await deleteProduct(id).unwrap();
-    //   if (res?.success) {
-    //     console.log("delete res:", res?.message);
-    //     toast.success("Room deleted successfully!");
-    //   }
-    // } catch (err) {
-    //   console.error(err);
-    //   toast.error("Failed to Delete Room");
-    // }
+    try {
+      const res = await deleteSingleRoom(id).unwrap();
+      if (res?.success) {
+        console.log("delete res:", res?.message);
+        toast.success("Room deleted successfully!");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to Delete Room");
+    }
     setShowDeleteModal(false);
   };
 
@@ -153,23 +123,23 @@ const RoomManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.length ? (
-              data?.map((item, i) => (
-                <tr key={i}>
+            {data?.data?.result?.length ? (
+              data?.data?.result?.map((item: TRoom) => (
+                <tr key={item?._id}>
                   <td className="border-b border-gray-800 px-2 py-4">
-                    {item.name}
+                    {item?.name}
                   </td>
                   <td className="border-b border-gray-800 px-2 py-4">
-                    {item.roomNo}
+                    {item?.roomNo}
                   </td>
                   <td className="border-b border-gray-800 px-2 py-4">
-                    {item.floorNo}
+                    {item?.floorNo}
                   </td>
                   <td className="border-b border-gray-800 px-2 py-4">
-                    {item.capacity}
+                    {item?.capacity}
                   </td>
                   <td className="border-b border-gray-800 px-2 py-4">
-                    Tk.{item.pricePerSlot}
+                    Tk.{item?.pricePerSlot}
                   </td>
                   <td className="border-b border-gray-800 px-2 py-4">
                     <button
@@ -194,7 +164,7 @@ const RoomManagement = () => {
                     <ConfirmationModal
                       isOpen={showDeleteModal}
                       onClose={() => setShowDeleteModal(false)}
-                      onConfirm={() => handleDeleteRoom(item.name)}
+                      onConfirm={() => handleDeleteRoom(item?._id)}
                     />
                   </td>
                 </tr>
