@@ -5,6 +5,7 @@ import Reviews from "./Reviews";
 import useTitle from "../../customHooks/useTitle";
 import HowItWorks from "./HowItWorks";
 import WhyChooseUs from "./WhyChooseUs";
+import FeaturedRoom from "./FeaturedRoom";
 const HomeMain = () => {
   //scrolltop
   useEffect(() => {
@@ -15,6 +16,7 @@ const HomeMain = () => {
     <div className="bg-zinc-50">
       <HeroSection />
       <AdvertiseService />
+      <FeaturedRoom />
       <HowItWorks />
       <Reviews />
       <WhyChooseUs />
