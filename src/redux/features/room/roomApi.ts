@@ -14,20 +14,53 @@ const roomApi = baseApi.injectEndpoints({
     }),
 
     // Query to fetch all rooms with optional query params
-    getAllRooms: builder.query({
-      query: (queryParams) => {
-        const queryStr = queryParams
-          ? new URLSearchParams(queryParams).toString()
-          : "";
+    // getAllRooms: builder.query({
+    //   query: (queryParams) => {
+    //     const queryStr = queryParams
+    //       ? new URLSearchParams(queryParams).toString()
+    //       : "";
 
-        const constructedUrl = queryStr ? `/rooms?${queryStr}` : "/rooms";
+    //     const constructedUrl = queryStr ? `/rooms?${queryStr}` : "/rooms";
+
+    //     return {
+    //       url: constructedUrl,
+    //       method: "GET",
+    //     };
+    //   },
+
+    //   providesTags: ["rooms"],
+    // }),
+
+    getAllRooms: builder.query({
+      query: () => ({
+        url: "/rooms",
+        method: "GET",
+      }),
+      providesTags: ["rooms"],
+    }),
+
+    fetchFilteredItems: builder.query({
+      query: (filterParams) => {
+        const searchParams = new URLSearchParams();
+        if (filterParams?.search)
+          searchParams.append("search", filterParams.search);
+        if (filterParams?.minPrice)
+          searchParams.append("minPrice", filterParams.minPrice);
+        if (filterParams?.maxPrice)
+          searchParams.append("maxPrice", filterParams.maxPrice);
+        if (filterParams?.minCapacity)
+          searchParams.append("minCapacity", filterParams.minCapacity);
+        if (filterParams?.maxCapacity)
+          searchParams.append("maxCapacity", filterParams.maxCapacity);
+        if (filterParams?.sortBy)
+          searchParams.append("sortBy", filterParams.sortBy);
 
         return {
-          url: constructedUrl,
+          url: "/rooms",
           method: "GET",
+          params: searchParams,
         };
       },
-
       providesTags: ["rooms"],
     }),
 
@@ -67,4 +100,5 @@ export const {
   useGetSingleRoomQuery,
   useDeleteSingleRoomMutation,
   useUpdateARoomMutation,
+  useFetchFilteredItemsQuery,
 } = roomApi;

@@ -57,7 +57,7 @@ const RoomManagement = () => {
   };
 
   const handleUpdateRoom = async (updatedRoom: TRoom) => {
-    console.log("Room updated:", updatedRoom);
+    // console.log("Room updated:", updatedRoom);
     const roomId = updatedRoom._id;
     try {
       const res = await updateARoom({
@@ -76,7 +76,7 @@ const RoomManagement = () => {
   };
 
   const handleDeleteRoom = async (id: string) => {
-    console.log("Room deleted:", id);
+    // console.log("Room deleted:", id);
     try {
       const res = await deleteSingleRoom(id).unwrap();
       if (res?.success) {
@@ -123,8 +123,8 @@ const RoomManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.data?.result?.length ? (
-              data?.data?.result?.map((item: TRoom) => (
+            {data?.data?.length ? (
+              data?.data?.map((item: TRoom) => (
                 <tr key={item?._id}>
                   <td className="border-b border-gray-800 px-2 py-4">
                     {item?.name}

@@ -27,9 +27,9 @@ const ScrollToTop: React.FC = () => {
     <div>
       <button
         onClick={goToTop}
-        className={`fixed bg-indigo-600 text-white right-5 bottom-5 rounded-full shadow-md p-3 transition-opacity duration-300 ${
+        className={`fixed bg-violet-600 text-white right-5 bottom-5 rounded-full shadow-md p-3 transition-opacity duration-300 ${
           isVisible ? "opacity-100" : "opacity-0"
-        } hover:bg-indigo-700 sm:bottom-7 sm:right-7`}
+        } hover:bg-violet-700 sm:bottom-7 sm:right-7`}
         aria-label="Back to top"
       >
         <IoIosArrowUp />
