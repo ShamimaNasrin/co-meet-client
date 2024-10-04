@@ -43,7 +43,7 @@ const RoomManagement = () => {
 
     try {
       await createARoom(newRoom).unwrap();
-      toast.success("Product added successfully!");
+      toast.success("Room added successfully!");
 
       // if (res?.success) {
       //   // console.log("add res:", res?.message);

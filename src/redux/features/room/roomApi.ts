@@ -13,24 +13,7 @@ const roomApi = baseApi.injectEndpoints({
       invalidatesTags: ["rooms"],
     }),
 
-    // Query to fetch all rooms with optional query params
-    // getAllRooms: builder.query({
-    //   query: (queryParams) => {
-    //     const queryStr = queryParams
-    //       ? new URLSearchParams(queryParams).toString()
-    //       : "";
-
-    //     const constructedUrl = queryStr ? `/rooms?${queryStr}` : "/rooms";
-
-    //     return {
-    //       url: constructedUrl,
-    //       method: "GET",
-    //     };
-    //   },
-
-    //   providesTags: ["rooms"],
-    // }),
-
+    // Query to fetch all rooms
     getAllRooms: builder.query({
       query: () => ({
         url: "/rooms",
@@ -39,6 +22,7 @@ const roomApi = baseApi.injectEndpoints({
       providesTags: ["rooms"],
     }),
 
+    // Query to fetch all rooms with filters
     fetchFilteredItems: builder.query({
       query: (filterParams) => {
         const searchParams = new URLSearchParams();
