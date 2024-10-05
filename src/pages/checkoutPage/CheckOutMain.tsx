@@ -1,19 +1,61 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 import { RootState } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
+import { useAddNewBookingMutation } from "../../redux/features/bookings/bookigApi";
+
+// type TBooking = {
+//   room: string;
+//   slots: string;
+//   user: string;
+//   date: string;
+//   totalAmount: number;
+// };
 
 const CheckOutMain: React.FC = () => {
   const currentUser = useAppSelector(useCurrentUser);
   const bookingData = useAppSelector((state: RootState) => state.booking);
   const navigate = useNavigate();
+  const [addNewBooking] = useAddNewBookingMutation();
+  const [slotIds, setSlotIds] = useState<string[]>([]);
 
   // console.log("bookingData:", bookingData);
 
   const [selectedPayment, setSelectedPayment] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (bookingData) {
+      const ids = bookingData?.slots?.map((slot) => slot._id);
+      setSlotIds(ids);
+    }
+  }, [bookingData]);
+
+  const createBooking = async () => {
+    if (currentUser && bookingData) {
+      const newBooking = {
+        room: bookingData?.slots[0]?.room?._id,
+        slots: slotIds,
+        user: currentUser?._id,
+        date: bookingData?.date,
+        totalAmount: bookingData?.totalCost,
+      };
+
+      try {
+        await addNewBooking(newBooking).unwrap();
+        toast.success("Booking added successfully!");
+
+        // if (res?.success) {
+        //   // console.log("add res:", res?.message);
+        // }
+      } catch (err) {
+        console.error(err);
+        toast.error("Failed to Add Booking");
+      }
+    }
+  };
 
   const handlePaymentSelect = (paymentMethod: string) => {
     setSelectedPayment(paymentMethod);
@@ -27,12 +69,14 @@ const CheckOutMain: React.FC = () => {
     if (selectedPayment === "cash") {
       setIsModalOpen(true);
       console.log("Cash on Delivery order placed.");
+      createBooking();
     } else if (selectedPayment === "stripe") {
       setSelectedPayment("");
       toast.error("Stripe payment is coming soon!", {
         duration: 4000,
         position: "top-center",
       });
+      createBooking();
     }
   };
 

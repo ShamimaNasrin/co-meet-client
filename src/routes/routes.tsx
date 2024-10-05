@@ -7,7 +7,6 @@ import CheckOutMain from "../pages/checkoutPage/CheckOutMain";
 import DashboardMain from "../pages/adminDashboard/DashboardMain";
 import NotFound from "../pages/notFound/NotFound";
 import FaqsMain from "../pages/faqs/FaqsMain";
-import SuccessPayment from "../pages/checkoutPage/SuccessPayment";
 import RoomDetails from "../pages/roomDetails/RoomDetails";
 import MeetingRoomsMain from "../pages/meetingRoomsPage/MeetingRoomsMain";
 import SignUpMain from "../pages/signUp/SignUpMain";
@@ -72,10 +71,6 @@ const router = createBrowserRouter([
       {
         path: "user/checkout",
         element: <CheckOutMain />,
-      },
-      {
-        path: "user/success",
-        element: <SuccessPayment />,
       },
 
       // common routes

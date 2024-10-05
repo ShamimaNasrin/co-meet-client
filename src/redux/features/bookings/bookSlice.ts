@@ -21,13 +21,6 @@ const bookingSlice = createSlice({
   name: "booking",
   initialState,
   reducers: {
-    resetBooking: (state) => {
-      // state.user = null;
-      state.date = null;
-      state.selectedTimes = [];
-      state.slots = [];
-      state.totalCost = 0;
-    },
     bookingDatat: (state, action: PayloadAction<TBook>) => {
       const { date, selectedTimes, slots, totalCost } = action.payload;
       // state.user = user;
@@ -39,5 +32,5 @@ const bookingSlice = createSlice({
   },
 });
 
-export const { resetBooking, bookingDatat } = bookingSlice.actions;
+export const { bookingDatat } = bookingSlice.actions;
 export default bookingSlice.reducer;
