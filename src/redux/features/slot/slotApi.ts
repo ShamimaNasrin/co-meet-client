@@ -9,7 +9,7 @@ const slotApi = baseApi.injectEndpoints({
         method: "POST",
         body: newSlot,
       }),
-      invalidatesTags: ["slots"],
+      invalidatesTags: ["slot"],
     }),
 
     // Query to fetch all rooms
@@ -18,7 +18,7 @@ const slotApi = baseApi.injectEndpoints({
         url: "/slots",
         method: "GET",
       }),
-      providesTags: ["slots"],
+      providesTags: ["slot"],
     }),
 
     // Query to fetch available slots
@@ -27,8 +27,23 @@ const slotApi = baseApi.injectEndpoints({
         url: "/slots/availability",
         method: "GET",
       }),
-      providesTags: ["slots"],
+      providesTags: ["slot"],
     }),
+
+    // fetchAvailableSlots: builder.query({
+    //   query: (filterParams) => {
+    //     const params = new URLSearchParams();
+    //     if (filterParams?.roomId) params.append("roomId", filterParams.roomId);
+    //     if (filterParams?.date) params.append("date", filterParams.date);
+
+    //     return {
+    //       url: `/slots/availability?${params.toString()}`,
+    //       method: "GET",
+    //       params: params,
+    //     };
+    //   },
+    //   providesTags: ["slot"],
+    // }),
 
     // Mutation for deleting a slot by ID
     deleteSingleSlot: builder.mutation({
@@ -36,7 +51,7 @@ const slotApi = baseApi.injectEndpoints({
         url: `/slots/${slotId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["slots"],
+      invalidatesTags: ["slot"],
     }),
 
     // Mutation to modify slot details
@@ -46,7 +61,7 @@ const slotApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: updatedSlot,
       }),
-      invalidatesTags: ["slots"],
+      invalidatesTags: ["slot"],
     }),
   }),
 });

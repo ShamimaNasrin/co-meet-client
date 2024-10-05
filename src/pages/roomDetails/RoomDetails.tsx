@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useTitle from "../../customHooks/useTitle";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { useGetSingleRoomQuery } from "../../redux/features/room/roomApi";
 import { FaCheckCircle } from "react-icons/fa";
@@ -107,10 +107,11 @@ const RoomDetails = () => {
                 )}
               </div>
             </div>
-
-            <button className="bg-violet-600 text-white mx-auto text-sm px-3 py-2 transition-all duration-500 hover:bg-violet-800">
-              Book Now
-            </button>
+            <Link to={`/user/bookings/${data?.data?._id}`}>
+              <button className="bg-violet-600 text-white mx-auto text-sm px-3 py-2 transition-all duration-500 hover:bg-violet-800">
+                Book Now
+              </button>
+            </Link>
           </div>
         </div>
       )}

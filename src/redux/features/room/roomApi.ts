@@ -10,7 +10,7 @@ const roomApi = baseApi.injectEndpoints({
         method: "POST",
         body: newRoom,
       }),
-      invalidatesTags: ["rooms"],
+      invalidatesTags: ["room"],
     }),
 
     // Query to fetch all rooms
@@ -19,7 +19,7 @@ const roomApi = baseApi.injectEndpoints({
         url: "/rooms",
         method: "GET",
       }),
-      providesTags: ["rooms"],
+      providesTags: ["room"],
     }),
 
     // Query to fetch all rooms with filters
@@ -45,7 +45,7 @@ const roomApi = baseApi.injectEndpoints({
           params: searchParams,
         };
       },
-      providesTags: ["rooms"],
+      providesTags: ["room"],
     }),
 
     // Query to fetch details of a single room by ID
@@ -54,7 +54,7 @@ const roomApi = baseApi.injectEndpoints({
         url: `/rooms/${roomId}`,
         method: "GET",
       }),
-      providesTags: ["rooms"],
+      providesTags: ["room"],
     }),
 
     // Mutation for deleting a room by ID
@@ -63,7 +63,7 @@ const roomApi = baseApi.injectEndpoints({
         url: `/rooms/${roomId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["rooms"],
+      invalidatesTags: ["room"],
     }),
 
     // Mutation to update room details
@@ -73,7 +73,7 @@ const roomApi = baseApi.injectEndpoints({
         method: "PATCH",
         body: updatedRoomData,
       }),
-      invalidatesTags: ["rooms"],
+      invalidatesTags: ["room"],
     }),
   }),
 });

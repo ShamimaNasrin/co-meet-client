@@ -19,6 +19,7 @@ import RoomManagement from "../pages/adminDashboard/roomManagement/RoomManagemen
 import SlotsManagement from "../pages/adminDashboard/slotsManagement/SlotsManagement";
 import BookingManagement from "../pages/adminDashboard/bookingManagement/BookingManagement";
 import UserManagement from "../pages/adminDashboard/userManagement/UserManagement";
+import BookingsMain from "../pages/bookings/BookingsMain";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "user/roomDetails/:id",
         element: <RoomDetails />,
+      },
+      {
+        path: "user/bookings/:roomId",
+        element: <BookingsMain />,
       },
       {
         path: "user/myBookings",

@@ -1,175 +1,206 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { useAppSelector } from "../../redux/hooks";
+import { useCurrentUser } from "../../redux/features/auth/authSlice";
+import { RootState } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
-// import { useAppDispatch } from "../../redux/hooks";
 
 const CheckOutMain: React.FC = () => {
+  const currentUser = useAppSelector(useCurrentUser);
+  const bookingData = useAppSelector((state: RootState) => state.booking);
   const navigate = useNavigate();
-  // const dispatch = useAppDispatch();
 
-  const [paymentMethod, setPaymentMethod] = useState<string>("");
+  // console.log("bookingData:", bookingData);
 
-  const handlePaymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPaymentMethod(e.target.value);
+  const [selectedPayment, setSelectedPayment] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handlePaymentSelect = (paymentMethod: string) => {
+    setSelectedPayment(paymentMethod);
   };
 
-  const handlePlaceOrder = () => {
-    if (paymentMethod === "cod") {
-      handleSuccess();
+  const handleBookingConfirm = () => {
+    if (!selectedPayment) {
+      toast.error("Please select a payment method");
+      return;
+    }
+    if (selectedPayment === "cash") {
+      setIsModalOpen(true);
       console.log("Cash on Delivery order placed.");
-    } else if (paymentMethod === "stripe") {
-      toast("Stripe payment is coming soon!", {
+    } else if (selectedPayment === "stripe") {
+      setSelectedPayment("");
+      toast.error("Stripe payment is coming soon!", {
         duration: 4000,
         position: "top-center",
       });
     }
   };
 
-  const handleSuccess = () => {
-    navigate("/success");
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const userName = form.username.value;
-    const email = form.email.value;
-    const phone = form.phone.value;
-    const city = form.city.value;
-    const address = form.address.value;
-
-    // console.log(userName, email, phone, city, address);
-
-    if (
-      userName?.length < 1 ||
-      email?.length < 1 ||
-      phone?.length < 1 ||
-      city?.length < 1 ||
-      address?.length < 1
-    ) {
-      toast.error("Please fill in all required fields.", {
-        duration: 4000,
-        position: "top-center",
-      });
-      return;
-    } else if (paymentMethod?.length < 1) {
-      toast.error("Select payment option", {
-        duration: 4000,
-        position: "top-center",
-      });
-      return;
-    } else {
-      handlePlaceOrder();
-    }
-
-    form.reset();
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedPayment("");
+    navigate("/home");
   };
 
   return (
-    <div className="bg-zinc-100 xl:py-12 lg:py-10 py-7 xl:px-20 lg:px-20 md:px-10 px-7 mx-auto w-full min-h-[70vh]">
-      <div className="mx-auto max-w-2xl bg-zinc-100 ">
-        <h2 className="text-3xl font-bold mb-4">Checkout</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label
-              className="block text-sm font-medium mb-2"
-              htmlFor="username"
-            >
-              Name
-            </label>
-            <input
-              id="username"
-              name="username"
-              type="text"
-              className="w-full p-2 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="w-full p-2 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2" htmlFor="phone">
-              Phone Number
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="text"
-              className="w-full p-2 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2" htmlFor="city">
-              City
-            </label>
-            <input
-              id="city"
-              name="city"
-              type="text"
-              className="w-full p-2 border border-gray-300 rounded-md"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2" htmlFor="address">
-              Delivery Address
-            </label>
-            <textarea
-              id="address"
-              name="address"
-              placeholder="House number and street name"
-              className="w-full p-2 border border-gray-300 rounded-md"
-              // value={userDetails.address}
-              // onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">Payment Method</h3>
-            <div>
-              <label className="inline-flex items-center mr-4">
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="cod"
-                  checked={paymentMethod === "cod"}
-                  onChange={handlePaymentChange}
-                  className="form-radio h-4 w-4 text-black"
-                />
-                <span className="ml-2">Cash on Delivery</span>
-              </label>
-              <label className="inline-flex items-center">
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="stripe"
-                  checked={paymentMethod === "stripe"}
-                  onChange={handlePaymentChange}
-                  className="form-radio h-4 w-4 text-black"
-                />
-                <span className="ml-2">Stripe</span>
-              </label>
-            </div>
-          </div>
+    <div className="min-h-screen bg-zinc-50 flex justify-center py-10 px-4">
+      <div className="w-full max-w-xl bg-white rounded-xl shadow-2xl p-10 transform transition-transform duration-300 hover:shadow-3xl">
+        {/* Booking Summary */}
+        <h2 className="text-3xl font-bold text-violet-600 mb-7 text-center tracking-wide">
+          Booking Summary
+        </h2>
+        <div className="mb-8 border-b pb-6">
+          {bookingData?.slots?.length > 0 ? (
+            <p className="my-2 text-md">
+              <strong className="text-gray-700">Room:</strong>{" "}
+              {bookingData?.slots[0]?.room?.name}
+            </p>
+          ) : (
+            <p className="my-2 text-md">
+              <strong className="text-gray-700">Room:</strong> N/A
+            </p>
+          )}
+
+          <p className="my-2 text-md">
+            <strong className="text-gray-700">Date:</strong> {bookingData?.date}
+          </p>
+          {bookingData?.selectedTimes?.length > 0 ? (
+            bookingData?.selectedTimes?.map((t, i) => (
+              <p className="my-2 text-md" key={i}>
+                <strong className="text-gray-700">Time:</strong> {t}
+              </p>
+            ))
+          ) : (
+            <p className="my-2 text-md">
+              <strong className="text-gray-700">Time:</strong> N/A
+            </p>
+          )}
+
+          <p className="my-2 text-md">
+            <strong className="text-gray-700">Cost:</strong> $
+            {bookingData?.totalCost}
+          </p>
+        </div>
+
+        {/* User Details */}
+        <h3 className="text-xl font-semibold text-gray-600 mb-6">
+          Your Information
+        </h3>
+        <div className="mb-8 border-b pb-6">
+          <p className="text-md">
+            <strong className="text-gray-700">Name:</strong> {currentUser?.name}
+          </p>
+          <p className="text-md">
+            <strong className="text-gray-700">Email:</strong>{" "}
+            {currentUser?.email}
+          </p>
+        </div>
+
+        {/* Payment Selection */}
+        <h3 className="text-xl font-semibold text-gray-600 mb-6">
+          Payment Method
+        </h3>
+        <div className="flex gap-6 mb-10">
           <button
-            type="submit"
-            // onClick={handlePlaceOrder}
-            className="mt-4 px-4 py-2 font-medium w-[200px] text-white bg-black  hover:bg-gray-700"
+            className={`${
+              selectedPayment === "stripe"
+                ? "bg-gradient-to-r from-purple-500 to-violet-600 text-white"
+                : "bg-gray-200 text-gray-700"
+            } px-5 py-3 w-[160px] rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200 ease-in-out`}
+            onClick={() => handlePaymentSelect("stripe")}
           >
-            Place Order
+            Pay with Stripe
           </button>
-        </form>
+          <button
+            className={`${
+              selectedPayment === "cash"
+                ? "bg-gradient-to-r from-purple-500 to-violet-600 text-white"
+                : "bg-gray-200 text-gray-700"
+            } px-5 py-3 w-[160px] rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200 ease-in-out`}
+            onClick={() => handlePaymentSelect("cash")}
+          >
+            Pay with Cash
+          </button>
+        </div>
+
+        {/* Confirm Booking Button */}
+        <button
+          className="bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold py-3 rounded-lg w-full hover:bg-violet-600 hover:scale-105 shadow-lg transition-transform duration-300"
+          onClick={handleBookingConfirm}
+        >
+          Confirm Booking
+        </button>
+      </div>
+
+      {/* Confirmation Modal */}
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          <div className="p-8 bg-white rounded-3xl shadow-2xl transform transition-transform ">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+              Booking Confirmed
+            </h2>
+            <p className="mb-2 text-md text-gray-700">
+              Thank you, {currentUser?.name}! Your booking is placed.
+            </p>
+            <div className="mb-8">
+              {bookingData?.slots?.length > 0 ? (
+                <p className="my-2 text-md text-gray-700">
+                  <strong>Room:</strong> {bookingData?.slots[0]?.room?.name}
+                </p>
+              ) : (
+                <p className="my-2 text-md text-gray-700">
+                  <strong>Room:</strong> N/A
+                </p>
+              )}
+
+              <p className="my-2 text-md text-gray-700">
+                <strong>Date:</strong> {bookingData?.date}
+              </p>
+              {bookingData?.selectedTimes?.length > 0 ? (
+                bookingData?.selectedTimes?.map((t, i) => (
+                  <p className="my-2 text-md text-gray-700" key={i}>
+                    <strong>Time:</strong> {t}
+                  </p>
+                ))
+              ) : (
+                <p className="my-2 text-md text-gray-700">
+                  <strong>Time:</strong> N/A
+                </p>
+              )}
+
+              <p className="my-2 text-md text-gray-700">
+                <strong>Cost:</strong> ${bookingData?.totalCost}
+              </p>
+            </div>
+            <button
+              className="bg-violet-500 text-white py-3 rounded-md w-full hover:bg-violet-600 shadow-lg transition-all duration-200"
+              onClick={handleModalClose}
+            >
+              Close
+            </button>
+          </div>
+        </Modal>
+      )}
+    </div>
+  );
+};
+
+interface ModalProps {
+  children: React.ReactNode;
+  onClose: () => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-md">
+        <button
+          className="absolute top-2 right-2 text-gray-500"
+          onClick={onClose}
+        >
+          X
+        </button>
+        {children}
       </div>
     </div>
   );
