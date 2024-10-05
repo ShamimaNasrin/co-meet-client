@@ -19,6 +19,7 @@ import SlotsManagement from "../pages/adminDashboard/slotsManagement/SlotsManage
 import BookingManagement from "../pages/adminDashboard/bookingManagement/BookingManagement";
 import UserManagement from "../pages/adminDashboard/userManagement/UserManagement";
 import BookingsMain from "../pages/bookings/BookingsMain";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,40 +38,77 @@ const router = createBrowserRouter([
       // admin routes
       {
         path: "admin/dashboard",
-        element: <DashboardMain />,
-      },
-      {
-        path: "admin/room-management",
-        element: <RoomManagement />,
+        element: (
+          <ProtectedRoute requiredRole="admin">
+            <DashboardMain />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "admin/slot-management",
-        element: <SlotsManagement />,
+        element: (
+          <ProtectedRoute requiredRole="admin">
+            <SlotsManagement />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "admin/room-management",
+        element: (
+          <ProtectedRoute requiredRole="admin">
+            <RoomManagement />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "admin/booking-management",
-        element: <BookingManagement />,
+        element: (
+          <ProtectedRoute requiredRole="admin">
+            <BookingManagement />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "admin/user-management",
-        element: <UserManagement />,
+        element: (
+          <ProtectedRoute requiredRole="admin">
+            <UserManagement />
+          </ProtectedRoute>
+        ),
       },
+
       // user routes
       {
         path: "user/roomDetails/:id",
-        element: <RoomDetails />,
+        element: (
+          <ProtectedRoute requiredRole="user">
+            <RoomDetails />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "user/bookings/:roomId",
-        element: <BookingsMain />,
+        element: (
+          <ProtectedRoute requiredRole="user">
+            <BookingsMain />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "user/myBookings",
-        element: <MyBookingsMain />,
+        element: (
+          <ProtectedRoute requiredRole="user">
+            <MyBookingsMain />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "user/checkout",
-        element: <CheckOutMain />,
+        element: (
+          <ProtectedRoute requiredRole="user">
+            <CheckOutMain />
+          </ProtectedRoute>
+        ),
       },
 
       // common routes
