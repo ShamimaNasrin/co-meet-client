@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useTitle from "../../customHooks/useTitle";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useSignupMutation } from "../../redux/features/auth/authApi";
+import { useSignupMutation } from "../../redux/features/user/userApi";
 import toast from "react-hot-toast";
 
 interface TFormInput {

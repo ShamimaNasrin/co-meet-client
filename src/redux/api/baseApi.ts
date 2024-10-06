@@ -12,7 +12,7 @@ import { logOut, setUser } from "../features/auth/authSlice";
 
 // base query configuration
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api/",
+  baseUrl: "https://co-meet-server.vercel.app/api/",
   credentials: "include", // for cookie
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
@@ -38,10 +38,13 @@ const baseQueryWithRefreshToken: BaseQueryFn<
       //* Send Refresh token
       console.log("Sending refresh token");
 
-      const res = await fetch("http://localhost:5000/api/auth/refresh-token", {
-        method: "POST",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://co-meet-server.vercel.app/api/auth/refresh-token",
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
 

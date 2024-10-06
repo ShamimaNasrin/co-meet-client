@@ -2,6 +2,15 @@ import { baseApi } from "../../api/baseApi";
 
 const userApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    // Mutation to create user
+    signup: builder.mutation({
+      query: (userInfo) => ({
+        url: "/users/signup",
+        method: "POST",
+        body: userInfo,
+      }),
+    }),
+
     // Query to fetch all user
     fetchAllUser: builder.query({
       query: () => ({
@@ -23,4 +32,8 @@ const userApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useFetchAllUserQuery, useModifyUserRoleMutation } = userApi;
+export const {
+  useSignupMutation,
+  useFetchAllUserQuery,
+  useModifyUserRoleMutation,
+} = userApi;

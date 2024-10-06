@@ -28,10 +28,10 @@ const BookingsMain: React.FC = () => {
   //   console.log("selectedSlots:", selectedSlots);
 
   useEffect(() => {
-    // Filter slots by roomId
+    // Filter slots by roomId and selectedDate
     if (selectedDate && availSlots?.data?.length) {
       const filtered = availSlots?.data?.filter(
-        (slot: any) => slot?.room?._id === roomId
+        (slot: any) => slot?.room?._id === roomId && slot?.date === selectedDate
       );
       setAvailableSlots(filtered);
     }

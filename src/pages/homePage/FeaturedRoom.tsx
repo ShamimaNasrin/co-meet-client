@@ -11,7 +11,9 @@ const FeaturedRoom = () => {
   return (
     <>
       <div className="py-7 xl:px-16 lg:px-16 md:px-10 px-7 bg-zinc-200 ">
-        <h2 className="font-bold text-4xl mb-4">Featured Rooms</h2>
+        <h2 className="font-bold text-4xl text-indigo-600 mb-4">
+          Featured Rooms
+        </h2>
 
         <div className="container mx-auto pb-4 xl:px-4 lg:px-4 ">
           {isLoading ? (
