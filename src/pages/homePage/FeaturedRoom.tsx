@@ -7,10 +7,10 @@ import { TRoom } from "../../types";
 
 const FeaturedRoom = () => {
   const { data, isLoading } = useGetAllRoomsQuery({});
-  const lastSixItems = data?.data?.slice(-6);
+  const lastSixItems = data?.data?.slice(-8);
   return (
     <>
-      <div className="py-7 xl:px-16 lg:px-16 md:px-10 px-7 bg-zinc-200 ">
+      <div className="py-7 xl:px-16 lg:px-16 md:px-10 px-7">
         <h2 className="font-bold text-4xl text-indigo-600 mb-4">
           Featured Rooms
         </h2>

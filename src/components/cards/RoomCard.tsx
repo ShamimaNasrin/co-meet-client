@@ -37,7 +37,7 @@ const RoomCard = ({
         </div>
 
         {/* <Link to={`/user/roomDetails/${_id}`}> */}
-        <CardButton str="See Details" path={`/user/roomDetails/${_id}`} />
+        <CardButton str="See Details" path={`/roomDetails/${_id}`} />
         {/* </Link> */}
       </div>
     </div>

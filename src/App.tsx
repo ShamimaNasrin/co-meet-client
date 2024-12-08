@@ -4,11 +4,11 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <>
+    <div className="bg-zinc-50">
       <MainLayout />
       <Toaster />
       <ScrollToTop />
-    </>
+    </div>
   );
 }
 

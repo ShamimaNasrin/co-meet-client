@@ -39,7 +39,7 @@ const services = [
 
 const WhyChooseUs = () => {
   return (
-    <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7 bg-gradient-to-b from-white to-zinc-200 ">
+    <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7  ">
       <h2 className="font-bold text-4xl text-indigo-600">Why Choose Us?</h2>
       <p className="mb-4 text-gray-700">
         We ensure a premium experience for our customers through a wide array of

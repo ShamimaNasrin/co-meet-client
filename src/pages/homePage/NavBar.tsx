@@ -41,8 +41,8 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <div className="shadow-md w-full sticky top-0 left-0 z-50">
-      <div className="md:flex items-center justify-between bg-white py-4 xl:px-16 lg:px-16 md:px-10 px-7">
+    <div className="bg-zinc-50 mx-auto max-w-7xl sticky top-0 left-0 z-50">
+      <div className="md:flex items-center justify-between bg-zinc-50 py-5 xl:px-0 lg:px-12 md:px-10 px-7">
         <Link to="/" className="normal-case">
           <div className="font-bold text-2xl cursor-pointer flex items-center text-violet-600">
             {/* <span className="text-3xl text-indigo-600 mr-1 pt-2">.</span> */}
@@ -59,7 +59,7 @@ const NavBar: React.FC = () => {
 
         {/* Navigation links */}
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 md:static absolute bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+          className={`md:flex md:items-center md:pb-0 pb-12 md:static absolute bg-zinc-50 md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
             open ? "top-20 " : "top-[-490px]"
           }`}
         >
@@ -82,7 +82,7 @@ const NavBar: React.FC = () => {
             </button>
 
             {dropdownOpen && (
-              <ul className="absolute right-0 md:left-auto left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg py-2">
+              <ul className="absolute right-0 md:left-auto left-0 mt-2 w-48 bg-white  rounded-md shadow-lg py-2">
                 {userDetails ? (
                   <>
                     <li className="px-4 py-2 hover:bg-gray-100">

@@ -79,14 +79,6 @@ const router = createBrowserRouter([
 
       // user routes
       {
-        path: "user/roomDetails/:id",
-        element: (
-          <ProtectedRoute requiredRole="user">
-            <RoomDetails />
-          </ProtectedRoute>
-        ),
-      },
-      {
         path: "user/bookings/:roomId",
         element: (
           <ProtectedRoute requiredRole="user">
@@ -124,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "rooms",
         element: <MeetingRoomsMain />,
+      },
+      {
+        path: "roomDetails/:id",
+        element: <RoomDetails />,
       },
       {
         path: "about",

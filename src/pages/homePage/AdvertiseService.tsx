@@ -3,6 +3,8 @@ import { GoClockFill } from "react-icons/go";
 import { FaCalendarCheck } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { motion } from "framer-motion";
+import { RiServiceLine } from "react-icons/ri";
+import SectionHeading from "../../components/SectionHeading";
 
 type TProp = {
   id: number;
@@ -40,30 +42,23 @@ const services: TProp[] = [
 const AdvertiseService = () => {
   return (
     <>
-      <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7 bg-gradient-to-b from-white to-zinc-200 ">
-        <h2 className="font-bold text-4xl text-indigo-600">Our Services</h2>
-        <p className="mb-4 text-gray-700">Even more reasons to stay with us</p>
+      {/* <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7 bg-gradient-to-b from-zinc-50 to-zinc-200 "> */}
+      <div className="py-12 max-w-7xl mx-auto px-8 md:px-0">
+        <SectionHeading
+          icon={RiServiceLine}
+          title="Our Services"
+          subtitle="Even more reasons to stay with us"
+        />
 
-        <div className="container mx-auto px-4">
-          <div
-            className="
-          grid gap-4 
-          grid-cols-1
-          sm:grid-cols-2 
-          md:grid-cols-3 
-          lg:grid-cols-4 
-          xl:grid-cols-4
-        "
-          >
-            {services.map((service, i) => (
-              <ServiceCard
-                key={i}
-                id={service.id}
-                title={service.title}
-                description={service.description}
-              />
-            ))}
-          </div>
+        <div className="grid gap-10 grid-cols-1  md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+          {services.map((service, i) => (
+            <ServiceCard
+              key={i}
+              id={service.id}
+              title={service.title}
+              description={service.description}
+            />
+          ))}
         </div>
       </div>
     </>
@@ -76,7 +71,7 @@ const ServiceCard = ({ id, title, description }: TProp) => {
       whileInView={{ opacity: 1, translateY: 0 }}
       initial={{ opacity: 0, translateY: 20 }}
       transition={{ duration: 1 }}
-      className="w-full text-center bg-white p-5 shadow-lg flex flex-col justify-evenly items-center rounded-lg"
+      className=" text-center bg-white p-6 shadow-sm flex flex-col justify-evenly items-center rounded-lg"
     >
       <div className="bg-[#EEE6F4] rounded-full p-3">
         {id === 1 ? (

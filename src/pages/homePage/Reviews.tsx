@@ -89,7 +89,7 @@ const clients: TClient[] = [
 
 const Reviews = () => {
   return (
-    <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7">
+    <div className=" py-10 xl:px-16 lg:px-16 md:px-10 px-7">
       <h2 className="font-bold text-4xl text-indigo-600">Customer Review</h2>
       <p className="mb-4 text-gray-700">
         See what our customers are saying about us
