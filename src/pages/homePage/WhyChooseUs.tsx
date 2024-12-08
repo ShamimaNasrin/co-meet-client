@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
-import { MdOutlineDashboardCustomize } from "react-icons/md";
+import {
+  MdOutlineDashboardCustomize,
+  MdOutlineContactSupport,
+} from "react-icons/md";
 import { RiCustomerServiceFill } from "react-icons/ri";
 import { BsShieldLock } from "react-icons/bs";
+import SectionHeading from "../../components/SectionHeading";
 
 interface StepCardProps {
   id: number;
@@ -39,33 +43,23 @@ const services = [
 
 const WhyChooseUs = () => {
   return (
-    <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7  ">
-      <h2 className="font-bold text-4xl text-indigo-600">Why Choose Us?</h2>
-      <p className="mb-4 text-gray-700">
-        We ensure a premium experience for our customers through a wide array of
-        benefits.
-      </p>
+    <div className="py-10 max-w-7xl mx-auto px-8 md:px-0">
+      <SectionHeading
+        icon={MdOutlineContactSupport}
+        title="Why Choose Us?"
+        subtitle="We ensure a premium experience for our customers through a wide array of
+        benefits."
+      />
 
-      <div className="container mx-auto px-4">
-        <div
-          className="
-          grid gap-4 
-          grid-cols-1
-          sm:grid-cols-2 
-          md:grid-cols-3 
-          lg:grid-cols-4 
-          xl:grid-cols-4
-        "
-        >
-          {services.map((service, i) => (
-            <ServiceCard
-              key={i}
-              id={service.id}
-              title={service.title}
-              description={service.description}
-            />
-          ))}
-        </div>
+      <div className="grid gap-8 grid-cols-1  md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+        {services.map((service, i) => (
+          <ServiceCard
+            key={i}
+            id={service.id}
+            title={service.title}
+            description={service.description}
+          />
+        ))}
       </div>
     </div>
   );
@@ -77,7 +71,7 @@ const ServiceCard = ({ id, title, description }: StepCardProps) => {
       whileInView={{ opacity: 1, translateY: 0 }}
       initial={{ opacity: 0, translateY: 20 }}
       transition={{ duration: 0.8 }}
-      className="w-full text-center bg-white p-5 shadow-lg flex flex-col justify-evenly items-center rounded-lg"
+      className="text-center bg-white p-6 shadow-sm flex flex-col justify-evenly items-center rounded-lg"
     >
       {id === 1 ? (
         <FaCheckCircle className="text-indigo-600 text-3xl" />

@@ -43,14 +43,14 @@ const AdvertiseService = () => {
   return (
     <>
       {/* <div className="py-10 xl:px-16 lg:px-16 md:px-10 px-7 bg-gradient-to-b from-zinc-50 to-zinc-200 "> */}
-      <div className="py-12 max-w-7xl mx-auto px-8 md:px-0">
+      <div className="py-10 max-w-7xl mx-auto px-8 md:px-0">
         <SectionHeading
           icon={RiServiceLine}
           title="Our Services"
           subtitle="Even more reasons to stay with us"
         />
 
-        <div className="grid gap-10 grid-cols-1  md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+        <div className="grid gap-8 grid-cols-1  md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
           {services.map((service, i) => (
             <ServiceCard
               key={i}

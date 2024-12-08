@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { GoClockFill } from "react-icons/go";
 import { FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
 import { IconType } from "react-icons";
+import { FaArrowsSpin } from "react-icons/fa6";
+import SectionHeading from "../../components/SectionHeading";
 
 const steps = [
   {
@@ -36,35 +38,36 @@ interface StepCardProps {
 
 const HowItWorks = () => {
   return (
-    <div className=" py-10 xl:px-16 lg:px-16 md:px-10 px-7">
-      <h2 className="font-bold text-4xl text-indigo-600">How It Works</h2>
-      <p className="mb-4 text-gray-700">Book a room in 3 simple step</p>
+    <div className="py-10 max-w-7xl mx-auto px-8 md:px-0">
+      <SectionHeading
+        icon={FaArrowsSpin}
+        title="How It Works"
+        subtitle="Book a room in 3 simple step"
+      />
 
       <div className="relative">
         {/* Timeline Connector */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full z-0"></div>
 
-        <div className="container mx-auto px-4">
-          <div
-            className="
-          grid gap-4 
+        <div
+          className="
+          grid gap-8 
           grid-cols-1
           sm:grid-cols-1
           md:grid-cols-2
           lg:grid-cols-3
           xl:grid-cols-3
         "
-          >
-            {steps.map((step, index) => (
-              <StepCard
-                key={index}
-                icon={step.icon}
-                title={step.title}
-                description={step.description}
-                delay={step.delay}
-              />
-            ))}
-          </div>
+        >
+          {steps.map((step, index) => (
+            <StepCard
+              key={index}
+              icon={step.icon}
+              title={step.title}
+              description={step.description}
+              delay={step.delay}
+            />
+          ))}
         </div>
       </div>
     </div>

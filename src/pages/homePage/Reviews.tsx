@@ -2,12 +2,13 @@ import "./styles/review.css";
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { TiStar } from "react-icons/ti";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { MdOutlineRateReview } from "react-icons/md";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import SectionHeading from "../../components/SectionHeading";
 
 type TClient = {
   name: string;
@@ -89,11 +90,13 @@ const clients: TClient[] = [
 
 const Reviews = () => {
   return (
-    <div className=" py-10 xl:px-16 lg:px-16 md:px-10 px-7">
-      <h2 className="font-bold text-4xl text-indigo-600">Customer Review</h2>
-      <p className="mb-4 text-gray-700">
-        See what our customers are saying about us
-      </p>
+    <div className="py-10 max-w-7xl mx-auto px-8 md:px-0">
+      <SectionHeading
+        icon={MdOutlineRateReview}
+        title="Customer Review"
+        subtitle="Hear from our satisfied customers and their unforgettable experiences, sharing their stories and feedback with you"
+      />
+
       <br />
 
       <Swiper

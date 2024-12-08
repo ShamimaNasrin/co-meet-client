@@ -25,7 +25,7 @@ const faqs = [
 const Footer = () => {
   return (
     <div className="bg-gradient-to-b from-zinc-50 to-zinc-200 w-full bottom-0 left-0 z-50">
-      <div className="max-w-7xl px-4 pt-12 pb-6 mx-auto ">
+      <div className="max-w-7xl pt-12 pb-6 mx-auto ">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <h1 className="text-lg font-semibold text-gray-800">CoMeet</h1>
