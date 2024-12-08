@@ -67,7 +67,7 @@ const BookingManagement = () => {
   useTitle("Booking management");
 
   return (
-    <div className="min-h-[70vh] xl:py-12 lg:py-10 py-7 xl:px-16 lg:px-16 md:px-10 px-7 bg-zinc-100">
+    <div className="min-h-[70vh] xl:py-12 lg:py-10 py-7 xl:px-16 lg:px-16 md:px-10 px-7 bg-zinc-50">
       <h1 className="text-3xl font-bold mb-8 text-violet-600">
         Booking management
       </h1>

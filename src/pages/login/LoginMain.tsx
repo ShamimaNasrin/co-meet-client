@@ -51,7 +51,7 @@ const LoginMain: React.FC = () => {
   }, []);
   useTitle("Login");
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 ">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 ">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white shadow-md rounded-lg px-10 py-6 space-y-6 xl:w-[33%] lg:w-[33%] md:w-[60%] sm:w-[80%] w-[90%]"

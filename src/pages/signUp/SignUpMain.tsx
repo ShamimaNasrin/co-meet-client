@@ -43,7 +43,7 @@ const SignUpMain: React.FC = () => {
   }, []);
   useTitle("Sign Up");
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 py-10">
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 py-10">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white shadow-md rounded-lg p-8 space-y-6 xl:w-[35%] lg:w-[35%] md:w-[60%] sm:w-[80%] w-[90%]"

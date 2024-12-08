@@ -16,7 +16,7 @@ const ContactMain = () => {
   return (
     // <div className="contact relative min-h-screen py-12 px-24 flex flex-col justify-center items-center bg-cover bg-center bg-contact-bg">
 
-    <div className="contact relative min-h-screen xl:py-20 lg:py-20 py-7 xl:px-24 lg:px-24 md:px-10 px-7 flex flex-col justify-center items-center">
+    <div className="contact relative min-h-screen xl:py-12 lg:py-12 py-7 xl:px-24 lg:px-24 md:px-10 px-7 flex flex-col justify-center items-center">
       <div className="content max-w-4xl text-center z-10">
         <motion.h2
           initial={{ opacity: 0, y: -40 }}

@@ -113,7 +113,7 @@ const MeetingRoomsMain = () => {
   useTitle("Rooms");
 
   return (
-    <div className="min-h-[70vh] xl:py-12 lg:py-10 py-7 xl:px-16 lg:px-16 md:px-10 px-7 bg-zinc-100 ">
+    <div className="min-h-[70vh] xl:py-12 lg:py-10 py-7 xl:px-16 lg:px-16 md:px-10 px-7 bg-zinc-50 ">
       <h2 className="font-bold text-4xl text-violet-600 text-center mb-8">
         Meeting Rooms
       </h2>
@@ -121,9 +121,25 @@ const MeetingRoomsMain = () => {
       <div className="flex xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col justify-between">
         {/* filter section */}
         <div className="xl:w-[25%] lg:w-[25%] md:w-[35%] w-full ">
-          <div className="p-7">
+          <div className="px-7 py-4">
+            {/* search by name or keywords */}
+            <h4 className="font-bold text-xl mb-2 text-gray-600">
+              Search Room
+            </h4>
+            <div>
+              <input
+                onChange={(e) => setSearchByName(e.target.value)}
+                value={searchByName}
+                type="text"
+                placeholder="Search by name"
+                className="w-full p-3 pr-8 mb-2 bg-zinc-50 border rounded border-gray-400 focus:outline-none"
+              />
+            </div>
+
             {/* Capacity range filter */}
-            <h4 className="font-bold text-xl mt-2">By capacity range</h4>
+            <h4 className="font-bold text-xl text-gray-600">
+              By capacity range
+            </h4>
 
             <div className="relative inline-block w-full max-w-sm my-4">
               <select
@@ -131,7 +147,7 @@ const MeetingRoomsMain = () => {
                   capacityRange ? capacityRange.minCapacity.toString() : ""
                 }
                 onChange={handleCapacityRange}
-                className="block appearance-none w-full bg-zinc-100 border-b border-gray-400 text-gray-700 p-1 pr-8 leading-tight focus:outline-none "
+                className="block appearance-none w-full bg-zinc-50 border border-gray-400 text-gray-700 p-3 pr-8 leading-tight focus:outline-none rounded"
               >
                 <option value="" disabled>
                   select capacity
@@ -153,12 +169,12 @@ const MeetingRoomsMain = () => {
             </div>
 
             {/* price range filter */}
-            <h4 className="font-bold text-xl ">By price range</h4>
+            <h4 className="font-bold text-xl text-gray-600">By price range</h4>
             <div className="relative inline-block w-full max-w-sm my-4">
               <select
                 value={priceRange ? priceRange.minPrice.toString() : ""}
                 onChange={handlePriceRange}
-                className="block appearance-none w-full bg-zinc-100 border-b border-gray-400 text-gray-700 p-1 pr-8 leading-tight focus:outline-none "
+                className="block appearance-none w-full bg-zinc-50 border border-gray-400 text-gray-700 p-3 pr-8 leading-tight focus:outline-none rounded"
               >
                 <option value="" disabled>
                   select price
@@ -179,12 +195,12 @@ const MeetingRoomsMain = () => {
             </div>
 
             {/* sort price select */}
-            <h4 className="font-bold text-xl ">Sort by price </h4>
+            <h4 className="font-bold text-xl text-gray-600">Sort by price </h4>
             <div className="relative inline-block w-full max-w-sm my-4">
               <select
                 value={sortByPrice}
                 onChange={(e) => setSortByPrice(e.target.value)}
-                className="block appearance-none w-full bg-zinc-100 border-b border-gray-400 text-gray-700 p-1 pr-8 leading-tight focus:outline-none "
+                className="block appearance-none w-full bg-zinc-50 border border-gray-400 text-gray-700 p-3 pr-8 leading-tight focus:outline-none rounded"
               >
                 <option value="" disabled>
                   Sort by price
@@ -203,22 +219,11 @@ const MeetingRoomsMain = () => {
               </div>
             </div>
 
-            {/* search by name or keywords */}
-            <h4 className="font-bold text-xl my-2">Search Room</h4>
-            <div>
-              <input
-                onChange={(e) => setSearchByName(e.target.value)}
-                value={searchByName}
-                type="text"
-                placeholder="Search by name"
-                className="w-full p-1 pr-8 bg-zinc-100 border-b border-gray-400 focus:outline-none"
-              />
-            </div>
             {/* Clear Filters */}
             <div className="w-full flex justify-center items-center mx-auto my-5">
               <button
                 onClick={handleFilterClear}
-                className="bg-violet-600 text-white mx-auto text-sm px-3 py-2 transition-all duration-500 hover:bg-violet-700 "
+                className="bg-violet-600 text-white mx-auto text-sm px-3 py-2 transition-all duration-500 hover:bg-violet-700 rounded"
               >
                 Clear filter
               </button>
