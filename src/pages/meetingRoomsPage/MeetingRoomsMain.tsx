@@ -113,7 +113,7 @@ const MeetingRoomsMain = () => {
   useTitle("Rooms");
 
   return (
-    <div className="min-h-[70vh] xl:py-12 lg:py-10 py-7 xl:px-16 lg:px-16 md:px-10 px-7 bg-zinc-50 ">
+    <div className="min-h-[70vh] xl:py-10 lg:py-8 py-6 xl:px-12 lg:px-12 md:px-8 px-6 mx-auto bg-zinc-50 ">
       <h2 className="font-bold text-4xl text-violet-600 text-center mb-8">
         Meeting Rooms
       </h2>
@@ -121,7 +121,7 @@ const MeetingRoomsMain = () => {
       <div className="flex xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col justify-between">
         {/* filter section */}
         <div className="xl:w-[25%] lg:w-[25%] md:w-[35%] w-full ">
-          <div className="px-7 py-4">
+          <div className="p-4">
             {/* search by name or keywords */}
             <h4 className="font-bold text-xl mb-2 text-gray-600">
               Search Room
@@ -231,7 +231,7 @@ const MeetingRoomsMain = () => {
           </div>
         </div>
         {/* room card section */}
-        <div className="container mx-auto py-4 xl:px-4 lg:px-4 xl:w-[75%] lg:w-[75%] md:w-[65%] w-full">
+        <div className=" mx-auto py-4 xl:px-4 lg:px-4 xl:w-[75%] lg:w-[75%] md:w-[65%] w-full">
           {isLoading ? (
             <LoadingSpinner />
           ) : (
